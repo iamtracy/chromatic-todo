@@ -15,18 +15,12 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-
+      - uses: actions/checkout@v1
       - name: Install dependencies
-      - run: yarn
-
-      - name: Run Build
-      - run: yarn build
-
+        run: yarn
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
